@@ -44,18 +44,47 @@ function calculateTax(income: number, taxYear: number): number {
   if (taxYear < 2022) return income * 1.2;
   return income * 1.3;
 }
-calculateTax(10_000, 2022)
+calculateTax(10_000, 2022);
 
 type Employee = {
-  readonly id: number,
-  name: string
-  retire: (date: Date) => void
-}
+  readonly id: number;
+  name: string;
+  retire: (date: Date) => void;
+};
 
-
-
-let employee: Employee = {id: 1,
-   name: "Adams",
+let employee: Employee = {
+  id: 1,
+  name: "Adams",
   retire: (date: Date) => {
     console.log(date);
-  }};
+  },
+};
+
+function kgToLbs(weight: number | string): number {
+  // Narrowing
+  if (typeof weight === "number") return weight * 2.2;
+  else return parseInt(weight) * 2.2;
+}
+
+kgToLbs(10);
+kgToLbs("10");
+
+type Draggable = {
+  drag: () => void;
+};
+
+type Resizable = {
+  resize: () => void;
+};
+
+type UIWidget = Draggable & Resizable;
+let textBox: UIWidget = {
+  drag: () => {},
+  resize: () => {},
+};
+
+// Literal (exact, specific)
+
+type Metric = "cm" | "inch";
+
+// optional chaining
