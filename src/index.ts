@@ -20,9 +20,9 @@ numbers.forEach((n) => n.toPrecision);
 
 // Turples
 
-let user: [number, string] = [1, "Adams" ]
-user[1]
-user.push(1)
+let user: [number, string] = [1, "Adams"];
+user[1];
+user.push(1);
 
 // enums
 
@@ -30,9 +30,32 @@ user.push(1)
 // const medium = 2;
 // const large = 3;
 
-
 // PascalCase
-enum Size { Small = 1, Medium, Large };
+const enum Size {
+  Small = 1,
+  Medium,
+  Large,
+}
 let mySize: Size = Size.Medium;
-console.log( mySize);
+console.log(mySize);
 
+// functions
+function calculateTax(income: number, taxYear: number): number {
+  if (taxYear < 2022) return income * 1.2;
+  return income * 1.3;
+}
+calculateTax(10_000, 2022)
+
+type Employee = {
+  readonly id: number,
+  name: string
+  retire: (date: Date) => void
+}
+
+
+
+let employee: Employee = {id: 1,
+   name: "Adams",
+  retire: (date: Date) => {
+    console.log(date);
+  }};
